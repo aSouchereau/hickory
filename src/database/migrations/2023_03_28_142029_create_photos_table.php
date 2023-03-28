@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('description');
 
             $table->foreignId('location_id')->nullable();
-            $table->foreignId('location_id')->references('id')->on('locations')->onDelete('set null');
+            $table->foreign('location_id')->references('id')->on('locations')->onDelete('set null');
             $table->timestamps();
         });
     }
