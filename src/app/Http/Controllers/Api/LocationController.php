@@ -21,7 +21,7 @@ class LocationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return Location::create($request->all());
     }
 
     /**
@@ -37,7 +37,8 @@ class LocationController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $location = Location::findOrFail($id);
+        $location->update($request->all());
     }
 
     /**
@@ -45,6 +46,7 @@ class LocationController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $location = Location::findOrFail($id);
+        $location->delete();
     }
 }
